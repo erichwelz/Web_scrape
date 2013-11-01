@@ -1,0 +1,11 @@
+.title {
+        list-style-type: square;
+    font-family: Verdana, sans-serif;
+    color: black;
+}
+
+.price {
+        list-style-type: none;
+    font-family: Verdana, sans-serif;
+    color: black;
+}

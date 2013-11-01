@@ -7,36 +7,39 @@ bikes = page.css('blockquote#toc_rows p.row span.pl a') #The hard part, getting 
 prices = page.css('blockquote#toc_rows p.row span.l2 span.price')
 
 
-#This places results in an .xml file#
+# # This places results in an .xml file
 
-  File.open('prices.xml', 'w') do |f|
+  # File.open('prices.xml', 'w') do |f|
 
-  f.puts prices
+  # f.puts prices
 
-  end
+  # end
 
 
 File.open('bikes.html', 'w') do |f|
 
 f.puts("<html>")
 f.puts("<head>")
-f.puts("<title>Intro to HTML/CSS</title>")
+f.puts('<link type="text/css" rel="stylesheet" href="stylesheet.css"/>')
+f.puts("<title>SCRAPE</title>")
 f.puts("</head>")
 f.puts("<body>")
-f.puts("<h1>Header One</h1>")
+f.puts("<h1>--SCRAPE--</h1>")
 f.puts("<ol>")
 bikes.each do |bike| 
-  f.puts("<li>#{bike.text}</li>")
+  #f.puts("<li>#{bike.text}</li>")
+  f.puts %(<li class="title">#{bike.text}</li>)
+
 end
 f.puts("</ol>")
 
 f.puts("<ol>")
 prices.each do |price| 
-  f.puts("<li>#{price.text}</li>")
+f.puts %(<li class="price">#{price.text}</li>)
 end
 f.puts("</ol>")
 
-f.puts("</body>")
-f.puts("</html)>")
+f.puts('</body>')
+f.puts('</html>')
 
 end
